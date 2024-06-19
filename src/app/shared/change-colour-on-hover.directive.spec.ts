@@ -32,8 +32,9 @@ describe('ChangeColourOnHoverDirective', () => {
   it('should create an instance', () => {
     let mockElementRef = {
       nativeElement: document.createElement('h2')
-    }
-    const directive = new ChangeColourOnHoverDirective(mockElementRef);
+    };
+    let mockRenderer = jasmine.createSpyObj('Renderer2', ['setStyle', 'removeStyle']);
+    const directive = new ChangeColourOnHoverDirective(mockElementRef, mockRenderer);
     expect(directive).toBeTruthy();
   });
 

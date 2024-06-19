@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appChangeColourOnHover]',
@@ -8,20 +8,20 @@ export class ChangeColourOnHoverDirective {
   @Input() defaultColour!: string;
   @Input() hoverColour!: string;
 
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef, private renderer: Renderer2) {
     el.nativeElement.style.customProperty = true;
    }
 
   ngOnInit() {
-    this.el.nativeElement.style.color = this.defaultColour;
+    this.renderer.setStyle(this.el.nativeElement, 'color', this.defaultColour);
   }
   ngOnDestroy(): void {
-    this.el.nativeElement.style.color = null;
+    this.renderer.removeStyle(this.el.nativeElement, 'color');
   }
   @HostListener('mouseenter') onMouseEnter() {
-    this.el.nativeElement.style.color = this.hoverColour || 'red';
+    this.renderer.setStyle(this.el.nativeElement, 'color', this.hoverColour || 'red');
   }
   @HostListener('mouseleave') onMouseLeave() {
-    this.el.nativeElement.style.color = this.defaultColour || 'black';
+    this.renderer.setStyle(this.el.nativeElement, 'color', this.defaultColour || 'black');
   }
 }

@@ -2,26 +2,42 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
 
-## Development server
+# Change Colour On Hover Directive
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project demonstrates an Angular directive that changes the colour of an element when the mouse hovers over it.
 
-## Code scaffolding
+## Setup Instructions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository to your local machine using `git clone <repository-url>`.
+2. Navigate to the project directory using `cd <project-directory>`.
+3. Install the project dependencies using `npm install`.
+4. Start the development server using `ng serve`.
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The `ChangeColourOnHoverDirective` uses the `Renderer2` service to manipulate the `color` style of the host element. When the directive is initialized (`ngOnInit`), it sets the color of the element to `defaultColour`. When the mouse enters the element (`mouseenter` event), it changes the color to `hoverColour`. When the mouse leaves the element (`mouseleave` event), it changes the color back to `defaultColour`. When the directive is destroyed (`ngOnDestroy`), it removes the `color` style from the element.
 
-## Running unit tests
+The `@Input` decorators are used to bind the `defaultColour` and `hoverColour` properties of the directive to attributes of the host element. This allows you to customize the colors by setting these attributes in your HTML templates.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<h2 appChangeColourOnHover defaultColour="black" hoverColour="red">Hover over me!</h2> 
 
-## Running end-to-end tests
+In this example, the text color of the h2 element will be black by default, and will change to red when the mouse hovers over it.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The `DraggableElementDirective` is an Angular directive that makes an HTML element draggable. It can be applied to any HTML element by adding the `appDraggableElement` attribute.
 
-## Further help
+## Usage
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<div appDraggableElement>Drag me around!</div>
+
+In this example, the div element can be dragged around the screen by clicking and holding the mouse button down on the element, and then moving the mouse.
+
+## How It Works
+The directive uses the HTML5 Drag and Drop API to implement the dragging functionality. When the user starts dragging the element (dragstart event), the directive records the initial position of the mouse cursor. When the user stops dragging the element (dragend event), the directive calculates the new position of the element based on the final position of the mouse cursor.
+
+The @HostBinding decorators are used to bind the draggable, position, top, and left properties of the element to properties of the directive. This allows the directive to control the draggable behavior and position of the element.
+
+## Running Tests
+
+Currently, this project includes a basic set of unit tests for the ChangeColourOnHoverDirective. Due to time constraints, comprehensive testing has not been implemented. Future updates to this project will aim to include more extensive unit tests, as well as end-to-end tests.
+
+To run the existing unit tests, use the ng test command.

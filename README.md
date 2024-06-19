@@ -19,7 +19,9 @@ The `ChangeColourOnHoverDirective` uses the `Renderer2` service to manipulate th
 
 The `@Input` decorators are used to bind the `defaultColour` and `hoverColour` properties of the directive to attributes of the host element. This allows you to customize the colors by setting these attributes in your HTML templates.
 
+```html
 <h2 appChangeColourOnHover defaultColour="black" hoverColour="red">Hover over me!</h2> 
+```
 
 In this example, the text color of the h2 element will be black by default, and will change to red when the mouse hovers over it.
 
@@ -27,7 +29,9 @@ The `DraggableElementDirective` is an Angular directive that makes an HTML eleme
 
 ## Usage
 
+```html
 <div appDraggableElement>Drag me around!</div>
+```
 
 In this example, the div element can be dragged around the screen by clicking and holding the mouse button down on the element, and then moving the mouse.
 

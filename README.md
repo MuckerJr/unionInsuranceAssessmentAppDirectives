@@ -13,7 +13,7 @@ This project demonstrates an Angular directive that changes the colour of an ele
 3. Install the project dependencies using `npm install`.
 4. Start the development server using `ng serve`.
 
-## Usage
+## Change Colour Directive Usage
 
 The `ChangeColourOnHoverDirective` uses the `Renderer2` service to manipulate the `color` style of the host element. When the directive is initialized (`ngOnInit`), it sets the color of the element to `defaultColour`. When the mouse enters the element (`mouseenter` event), it changes the color to `hoverColour`. When the mouse leaves the element (`mouseleave` event), it changes the color back to `defaultColour`. When the directive is destroyed (`ngOnDestroy`), it removes the `color` style from the element.
 
@@ -25,9 +25,9 @@ The `@Input` decorators are used to bind the `defaultColour` and `hoverColour` p
 
 In this example, the text color of the h2 element will be black by default, and will change to red when the mouse hovers over it.
 
-The `DraggableElementDirective` is an Angular directive that makes an HTML element draggable. It can be applied to any HTML element by adding the `appDraggableElement` attribute.
+## Draggable Element Directive Usage
 
-## Usage
+The `DraggableElementDirective` is an Angular directive that makes an HTML element draggable. It can be applied to any HTML element by adding the `appDraggableElement` attribute.
 
 ```html
 <div appDraggableElement>Drag me around!</div>
